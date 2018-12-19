@@ -44,11 +44,9 @@ class ImageProcessing(object):
         # correlation =  signal.correlate2d(in1=self.image,
         #                                   in2=kernel,
         #                                   mode='full')
+        # imageio.imsave('korelacja.jpg', correlation)
         correlation = cv.matchTemplate(kernel, self.image, method=cv.TM_CCORR_NORMED)
-        # correlation = signal.correlate2d(self.image, kernel, mode='full', boundary='fill', fillvalue=0)
         self.image = correlation
-        imageio.imsave('korelacja.jpg', correlation)
-        imageio.imsave('jaderka.jpg', kernel)
         return correlation
 
     def find_peaks(self):
