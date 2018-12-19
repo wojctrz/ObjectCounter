@@ -52,7 +52,7 @@ class ImageProcessing(object):
     def find_peaks(self):
         distance = int(np.size(self.image, 0)/13)
         peaks = peak_local_max(self.image,
-                                min_distance=1,
+                                min_distance=distance,
                                 threshold_rel = 0.7)
         peak_coordinates = []
         for peak in peaks:
